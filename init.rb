@@ -7,6 +7,6 @@ Redmine::Plugin.register :redmine_oidc_provider do
   name "Redmine OIDC Provider"
   author "Community"
   description "Adds OpenID Connect discovery and Dynamic Client Registration to Redmine's built-in Doorkeeper provider."
-  version "0.1.1"
+  version "0.1.2"
   requires_redmine version_or_higher: "6.1.0"
 end
