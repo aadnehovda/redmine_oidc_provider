@@ -7,7 +7,7 @@ module RedmineOidcProvider
     def application_params(registration)
       super.tap do |attributes|
         attributes[:scopes] =
-          params[:scope].presence || Doorkeeper.configuration.scopes.to_s
+          params[:scope].presence || RedmineOidcProvider::Config.dcr_default_scopes
       end
     end
   end

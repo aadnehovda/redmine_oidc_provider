@@ -46,14 +46,15 @@ All configuration is environment-driven. Do not commit secrets.
 | `REDMINE_OIDC_PROVIDER_SIGNING_KEY_FILE` | Path to a PEM signing key file. Preferred for deployments. |
 | `REDMINE_OIDC_PROVIDER_SIGNING_KEY` | PEM signing key value. Useful for local tests only. |
 | `REDMINE_OIDC_PROVIDER_DCR_ENABLED` | Enables Dynamic Client Registration when set to `true`, `1`, `yes`, or `on`. |
+| `REDMINE_OIDC_PROVIDER_DCR_DEFAULT_SCOPES` | Optional scope list for DCR clients that omit the `scope` metadata field. |
 
 If no signing key is configured, the plugin generates an ephemeral RSA key at
 boot. That is only suitable for local testing because tokens/key material will
 change on restart.
 
-Dynamic clients that omit the `scope` metadata field are registered with
-Redmine's configured OAuth scope set. Clients that send `scope` during
-registration are unchanged.
+`REDMINE_OIDC_PROVIDER_DCR_DEFAULT_SCOPES` is useful for clients that register
+without a scope list but request scopes during authorization. Clients that send
+`scope` during registration are unchanged.
 
 ## Endpoints
 
