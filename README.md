@@ -67,3 +67,8 @@ endpoints.
 
 This plugin makes Redmine act as an OIDC/OAuth provider. It is separate from
 plugins that make Redmine authenticate users against an external company IdP.
+
+## License
+
+This plugin is licensed under the GNU General Public License version 2, matching
+Redmine itself. See [LICENSE](LICENSE).
