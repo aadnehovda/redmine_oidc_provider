@@ -63,6 +63,10 @@ module RedmineOidcProvider
       truthy?(ENV.fetch("REDMINE_OIDC_PROVIDER_DCR_ENABLED", "false"))
     end
 
+    def dcr_default_scopes
+      ENV["REDMINE_OIDC_PROVIDER_DCR_DEFAULT_SCOPES"].to_s.strip
+    end
+
     def truthy?(value)
       %w[1 true yes on].include?(value.to_s.downcase)
     end
