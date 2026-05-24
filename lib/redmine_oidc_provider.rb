@@ -2,7 +2,6 @@
 
 require "doorkeeper/openid_connect"
 require_relative "redmine_oidc_provider/config"
-require_relative "redmine_oidc_provider/dynamic_client_registration"
 
 gem_path = Gem.loaded_specs.fetch("doorkeeper-openid_connect").full_gem_path
 require File.join(gem_path, "lib/doorkeeper/openid_connect/orm/active_record/access_grant")
@@ -46,9 +45,4 @@ end
 
 Rails.application.config.to_prepare do
   RedmineOidcProvider.install_active_record_extensions!
-
-  controller = Doorkeeper::OpenidConnect::DynamicClientRegistrationController
-  unless controller.ancestors.include?(RedmineOidcProvider::DynamicClientRegistration)
-    controller.prepend(RedmineOidcProvider::DynamicClientRegistration)
-  end
 end
